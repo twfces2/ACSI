@@ -2,7 +2,6 @@ import database as db
 import streamlit as st
 import numpy as np
 import redneu as red
-import pyautogui
 
 all_files = np.array(db.enlistar())
 
@@ -46,7 +45,6 @@ with st.container():
         if result:
             bytes_file = file.getvalue()
             db.insert_dcm("prueba.dcm",bytes_file)  
-            pyautogui.hotkey("ctrl","F5")
             
 with st.container():    
     cuadro=db.dcm_info(name)
