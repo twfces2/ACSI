@@ -81,10 +81,7 @@ if authentication_status:
 
     with st.container():
         file = st.file_uploader("Seleccione el archivo a subir")
-        if file is not None:
-            result = st.button("Subir archivo")
-            file = st.file_uploader("FILE UPLOADER")
-            submitted = st.form_submit_button("UPLOAD!")
+        submitted = st.form_submit_button("UPLOAD!")
         if submitted and file is not None:
             nombre=file.name
             bytes_file = file.getvalue()
