@@ -43,8 +43,9 @@ with st.container():
     if file is not None:
         result = st.button("Subir archivo")
         if result:
+            nombre=file.name
             bytes_file = file.getvalue()
-            db.insert_dcm("prueba.dcm",bytes_file)  
+            db.insert_dcm(nombre,bytes_file)  
             
 with st.container():    
     cuadro=db.dcm_info(name)
