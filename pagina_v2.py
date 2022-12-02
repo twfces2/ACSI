@@ -81,13 +81,14 @@ if authentication_status:
 
     with st.container():
         file = st.file_uploader("Seleccione el archivo a subir")
-        submitted = st.form_submit_button("UPLOAD!")
-        if submitted and file is not None:
-            nombre=file.name
-            bytes_file = file.getvalue()
-            db.insert_dcm(nombre,bytes_file)  
-            st.write("UPLOADED!")
-            st.experimental_rerun()
+        if file is not None:
+            result = st.button("Subir archivo")
+            if result:
+                nombre=file.name
+                bytes_file = file.getvalue()
+                db.insert_dcm(nombre,bytes_file)  
+                st.experimental_rerun()
+                
             
     with st.container():    
         cuadro=db.dcm_info(name)
