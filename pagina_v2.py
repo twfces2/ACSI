@@ -92,15 +92,6 @@ if authentication_status:
     with st.container():    
         cuadro=db.dcm_info(name)
         st.table(cuadro)
-    with st.container(): 
-        resumen = st.button("Generar resumen")
-        if resumen:
-            prioridades = np.zeros(all_files.shape)
-            st.write(prioridades)
-            for i in all_files:
-                i1=db.dcm_img(i)
-                i2=np.array(i1)
-                i3,prediction=red.predecir(i2)
                 
              
         
